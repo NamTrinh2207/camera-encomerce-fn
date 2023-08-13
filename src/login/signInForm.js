@@ -7,10 +7,11 @@ import {
 import {Link} from "react-router-dom";
 
 function signInForm(props) {
+
     const onFinish = (values) => {
         console.log('login success', values);
     };
-
+    // CSS
     const rainbowBackground = {
         minHeight: '300px',
         display: 'flex',
@@ -18,7 +19,6 @@ function signInForm(props) {
         justifyContent: 'center',
         input: '500px',
     };
-
     const inputStyle = {
         width: 500,
         height: 46,

@@ -6,13 +6,39 @@ import {
     PhoneOutlined,
     MailOutlined
 } from '@ant-design/icons';
-import {Link} from "react-router-dom";
-
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
+import Swal from 'sweetalert2';
 function SignupForm(props) {
-    const onFinish = (values) => {
-        console.log('Received values of form:', values);
-    };
 
+    const navigate = useNavigate();
+
+    const onFinish = (values) => {
+        const data = { ...values, roles: ['ROLE_USER'] };
+        registerUser(data)
+    };
+    const registerUser = (data) => {
+        axios.post("http://localhost:8080/api/signup", data)
+            .then((response) => {
+                Swal.fire({
+                    icon: "success",
+                    text:response.data.message,
+                    showConfirmButton:false,
+                    timer:1000
+                })
+                setTimeout(() =>{
+                    navigate("/signing")
+                },1000)
+            }).catch((error) => {
+                Swal.fire({
+                    icon:"error",
+                    title: "đã xảy ra sự cố",
+                    text:error.response.data.message
+                })
+        })
+    }
+
+    //CSS
     const rainbowBackground = {
         minHeight: '400px',
         display: 'flex',
@@ -113,6 +139,7 @@ function SignupForm(props) {
                     </Form.Item>
                 </Form>
             </div>
+            <br/>
         </div>
 
     );
