@@ -1,19 +1,19 @@
 import React from 'react';
 import {Button, Form, Input} from 'antd';
 import {
+    MailOutlined,
     UserOutlined,
-    LockOutlined,
 } from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-function signInForm(props) {
+function ForgotPassword(props) {
 
     const onFinish = (values) => {
         console.log('login success', values);
     };
     // CSS
     const rainbowBackground = {
-        minHeight: '300px',
+        minHeight: '200px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -30,39 +30,31 @@ function signInForm(props) {
             <div className={"text-lg-center"}>
                 <h4><strong>ĐĂNG NHẬP TÀI KHOẢN</strong></h4> <br/>
                 <h6>Bạn chưa có tài khoản ? Đăng ký <Link style={{color:'#7FAD39'}} to={"/signup"}>tại đây</Link></h6>
+                <br/>
+                <h5><strong>ĐẶT LẠI MẬT KHẨU</strong></h5>
+                <br/>
+                <h6>Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.</h6>
             </div>
             <div style={rainbowBackground}>
-                <Form name="login" onFinish={onFinish} scrollToFirstError>
+                <Form name="forgotPassword" onFinish={onFinish} scrollToFirstError>
                     <Form.Item
-                        name="username"
+                        name="email"
                         rules={[
                             {
                                 required: true,
-                                message: 'Vui lòng nhập tên tài khoản!',
+                                message: 'Vui lòng nhập email!',
                             },
                         ]}
                     >
-                        <Input style={inputStyle} prefix={<UserOutlined/>} placeholder="Tên người dùng"/>
+                        <Input style={inputStyle} prefix={<MailOutlined/>} placeholder="Email"/>
                     </Form.Item>
-                    <Form.Item
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Vui lòng nhập mật khẩu!',
-                            },
-                        ]}
-                        hasFeedback
-                    >
-                        <Input.Password style={inputStyle} prefix={<LockOutlined/>} placeholder="Mật khẩu"/>
-                    </Form.Item>
-                    <p>Quên mật khẩu ? Nhấn <Link style={{color:'#7FAD39'}} to={"/forgotPassword"}>vào đây</Link></p>
                     <Form.Item>
                         <Button style={{ backgroundColor: '#7FAD39', width: 500,height: 46, maxWidth: '100vh',}}
                                 type="primary" htmlType="submit">
                             ĐĂNG NHẬP
                         </Button>
                     </Form.Item>
+                    <h6 className={"text-lg-center"}><Link style={{color:'#7FAD39'}} to={"/signing"}>Quay lại đăng nhập</Link></h6>
                 </Form>
             </div>
         </div>
@@ -70,4 +62,4 @@ function signInForm(props) {
     );
 }
 
-export default signInForm;
+export default ForgotPassword;

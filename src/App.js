@@ -6,6 +6,7 @@ import SignupForm from "./login/SignupForm";
 import Loading from "./camera/Loading";
 import React from "react";
 import SignInForm from "./login/signInForm";
+import ForgotPassword from "./login/ForgotPassword";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path={"/"} element={<HomePage/>}></Route>
               <Route path={"/signup"} element={<SignupForm/>}></Route>
               <Route path={"/signing"} element={<SignInForm/>}></Route>
+              <Route path={"forgotPassword"} element={<ForgotPassword/>}></Route>
           </Routes>
           <Footer/>
       </BrowserRouter>
