@@ -3,11 +3,10 @@ import {Link} from "react-router-dom";
 
 function Navbar(props) {
     return (
-        <div>
-            <header className="header">
+            <header className="header fixed-top bg-white shadow">
                 <div className="header__top">
                     <div className="container">
-                        <div style={{backgroundColor:'#F1F0EC'}} className="row">
+                        <div className="row">
                             <div className="col-lg-6 col-md-6">
                                 <div className="header__top__left">
                                     <ul>
@@ -44,17 +43,15 @@ function Navbar(props) {
                     <div className="row">
                         <div className="col-lg-3">
                             <div className="header__logo">
-                                <a href="./index.html"><img src="" alt="logo"/></a>
+                                <Link style={{width:90,marginLeft:80}} to={"/"}><img src="img/logo.png" alt="logo"/></Link>
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <nav className="header__menu">
                                 <ul>
                                     <li className="active"><Link to={"/"} >Trang chủ</Link></li>
-                                    <li><a href="#">Giới thiệu
-                                    </a></li>
-                                    <li><a href="#">
-                                        Blog</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Blog</a></li>
                                     <li><a href="#">Liên hệ</a></li>
                                 </ul>
                             </nav>
@@ -73,7 +70,6 @@ function Navbar(props) {
                     </div>
                 </div>
             </header>
-        </div>
     );
 }
 

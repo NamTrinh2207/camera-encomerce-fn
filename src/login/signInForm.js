@@ -21,13 +21,13 @@ function signInForm(props) {
     };
     const inputStyle = {
         width: 500,
-        height: 46,
+        height: 40,
         maxWidth: '100vh',
     }
 
     return (
         <div>
-            <div className={"text-lg-center"}>
+            <div className={"text-lg-center content"}>
                 <h4><strong>ĐĂNG NHẬP TÀI KHOẢN</strong></h4> <br/>
                 <h6>Bạn chưa có tài khoản ? Đăng ký <Link style={{color:'#7FAD39'}} to={"/signup"}>tại đây</Link></h6>
             </div>

@@ -49,17 +49,17 @@ function SignupForm(props) {
 
     const inputStyle = {
         width: 500,
-        height: 46,
+        height: 40,
         maxWidth: '100vh',
     }
 
     return (
-        <div>
+        <div className={"content"}>
             <div className={"text-lg-center"}>
                 <h4><strong>ĐĂNG KÝ TÀI KHOẢN</strong></h4> <br/>
                 <h6>Bạn đã có tài khoản ? Đăng nhập <Link style={{color:'#7FAD39'}} to={"/signing"}>tại đây</Link></h6>
             </div>
-            <br/><br/>
+            <br/>
             <div style={rainbowBackground}>
                 <Form name="register" onFinish={onFinish} scrollToFirstError>
                     <Form.Item

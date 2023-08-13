@@ -2,8 +2,7 @@ import React from 'react';
 
 function Header(props) {
     return (
-        <div>
-            <section className="hero">
+            <section style={{marginTop:180}} className="hero">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3">
@@ -17,18 +16,13 @@ function Header(props) {
                                     <li><a href="#">Camera ngoài trời</a></li>
                                     <li><a href="#">Camera pin sạc</a></li>
                                     <li><a href="#">Phụ kiện Camera</a></li>
-                                    <li><a href="#">Khóa và chuông cửa</a></li>
-                                    <li><a href="#">Thiết bị nhà thông minh</a></li>
-                                    <li><a href="#">Cảnh báo và cảm biến</a></li>
-                                    <li><a href="#">Hệ thống chuông cửa</a></li>
-                                    <li><a href="#">Đầu ghi KTS</a></li>
                                     <li><a href="#">Thiết bị mạng</a></li>
                                     <li><a href="#">Camera hành trình</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div className="col-lg-9">
-                            <div style={{marginBottom:17}} className="hero__search">
+                            <div style={{marginBottom:5}} className="hero__search">
                                 <div className="hero__search__form">
                                     <form action="#">
                                         <input type="text" placeholder="Bạn cần tìm gì?"/>
@@ -45,19 +39,12 @@ function Header(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="hero__item set-bg" style={{backgroundImage:'url(img/camera/camera.webp)'}}>
-                                {/*<div className="hero__text">*/}
-                                {/*    <span>CB8</span>*/}
-                                {/*    <h2>CAMERA WIFI</h2>*/}
-                                {/*    <p>HD PRO 3K</p>*/}
-                                {/*    <a href="#" className="primary-btn">MUA NGAY</a>*/}
-                                {/*</div>*/}
+                            <div  className="hero__item set-bg" style={{backgroundImage:'url(img/camera/banner-camera-vienthongminhngoc.jpg)',maxHeight:248}}>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
     );
 }
 

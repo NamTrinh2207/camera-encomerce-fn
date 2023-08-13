@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer style={{backgroundColor:'#F1F0EC'}} className="footer spad">
+        <footer className="footer spad">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about">
                             <div className="footer__about__logo">
-                                <Link to={"/"}><img src="img/img.png" alt=""/></Link>
+                                <Link to={"/"}><img src="img/logo.png" alt=""/></Link>
                             </div>
                             <ul>
                                 <li>Địa chỉ: Minh Khai, Từ Liêm, Hà Nội</li>
