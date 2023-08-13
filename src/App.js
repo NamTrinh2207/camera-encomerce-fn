@@ -1,7 +1,11 @@
-import Footer from "./component/page/Footer";
+import HomePage from "./camera/HomePage";
+
 function App() {
   return (
-    <Footer/>
+      <div>
+          <HomePage/>
+      </div>
+
   );
 }
 
