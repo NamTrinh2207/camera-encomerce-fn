@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -8,7 +9,7 @@ const Footer = () => {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about">
                             <div className="footer__about__logo">
-                                <a href="./index.html"><img src="img/img.png" alt=""/></a>
+                                <Link to={"/"}><img src="img/img.png" alt=""/></Link>
                             </div>
                             <ul>
                                 <li>Địa chỉ: Minh Khai, Từ Liêm, Hà Nội</li>
@@ -19,10 +20,7 @@ const Footer = () => {
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                         <div className="footer__widget">
-                            <h6>Chính sách &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;
+                            <h6>Chính sách &
                                 Hỗ trợ khách hàng</h6>
                             <ul>
                                 <li><a href="#">Chính sách bảo mật</a></li>

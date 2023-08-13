@@ -28,7 +28,7 @@ function Header(props) {
                             </div>
                         </div>
                         <div className="col-lg-9">
-                            <div className="hero__search">
+                            <div style={{marginBottom:17}} className="hero__search">
                                 <div className="hero__search__form">
                                     <form action="#">
                                         <input type="text" placeholder="Bạn cần tìm gì?"/>

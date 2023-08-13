@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function Navbar(props) {
     return (
@@ -32,7 +33,7 @@ function Navbar(props) {
                                             </ul>
                                     </div>
                                     <div className="header__top__right__auth">
-                                        <a href="#"><i className="fa fa-user"></i> Đăng nhập</a>
+                                        <Link to={"/signup"}><i className="fa fa-user"></i> Đăng nhập</Link>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +50,7 @@ function Navbar(props) {
                         <div className="col-lg-6">
                             <nav className="header__menu">
                                 <ul>
-                                    <li className="active"><a href="#">Trang chủ</a></li>
+                                    <li className="active"><Link to={"/"} >Trang chủ</Link></li>
                                     <li><a href="#">Giới thiệu
                                     </a></li>
                                     <li><a href="#">
