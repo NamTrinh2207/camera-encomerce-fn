@@ -11,31 +11,31 @@ import {useAuth} from "./AuthProvider";
 
 function SignInForm(props) {
     const navigate = useNavigate();
-    const {setUser, setToken} = useAuth();
-        const onFinish = (values) => {
-            axios.post("http://localhost:8080/api/login", {
-                username: values.username,
-                password: values.password
+    const {updateUserAndToken } = useAuth();
+    const onFinish = (values) => {
+        axios.post("http://localhost:8080/api/login", {
+            username: values.username,
+            password: values.password
+        })
+            .then((response) => {
+                const token = response.data.token
+                const user = response.data
+                try {
+                    updateUserAndToken(user,token)
+                    console.log(user.roles.authority)
+                    navigate("/")
+                } catch (error) {
+                    console.error("Token verification error:", error);
+                }
             })
-                .then((response) => {
-                    const token = response.data.token
-                    const user = response.data
-                    try {
-                        setUser(user)
-                        setToken(token)
-                        navigate("/")
-                    }catch (error) {
-                        console.error("Token verification error:", error);
-                    }
+            .catch(() => {
+                Swal.fire({
+                    icon: "error",
+                    title: "đã xảy ra sự cố",
+                    text: "Sai tài khoản hoặc mật khẩu"
                 })
-                .catch(() => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "đã xảy ra sự cố",
-                        text: "Sai tài khoản hoặc mật khẩu"
-                    })
-                })
-        };
+            })
+    };
 
     // CSS
     const rainbowBackground = {
@@ -84,7 +84,7 @@ function SignInForm(props) {
                     </Form.Item>
                     <p>Quên mật khẩu ? Nhấn <Link style={{color: '#7FAD39'}} to={"/forgotPassword"}>vào đây</Link></p>
                     <Form.Item>
-                        <Button style={{backgroundColor: '#7FAD39', width: 500, height: 46, maxWidth: '100vh',}}
+                        <Button style={{backgroundColor: '#7FAD39', width: 500, height: 46, maxWidth: '100vh',fontSize:15}}
                                 type="primary" htmlType="submit">
                             ĐĂNG NHẬP
                         </Button>

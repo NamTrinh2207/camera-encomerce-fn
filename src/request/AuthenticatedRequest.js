@@ -1,10 +1,6 @@
-import React from 'react';
-import {useAuth} from "../login/AuthProvider";
 import axios from "axios";
 
-function AuthenticatedRequest(url, method, data) {
-    const {token} = useAuth();
-
+function AuthenticatedRequest(url, method, data, token) {
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -12,6 +8,7 @@ function AuthenticatedRequest(url, method, data) {
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
+
     return axios({
         method,
         url,
@@ -22,4 +19,5 @@ function AuthenticatedRequest(url, method, data) {
 
 export default AuthenticatedRequest;
 
-// Sử dụng hàm AuthenticatedRequest trong các nơi cần gửi request.
+
+// Sử dụng hàm AuthenticatedRequest trong các nơi cần gửi request thay cho axios
