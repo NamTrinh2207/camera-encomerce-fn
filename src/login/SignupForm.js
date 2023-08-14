@@ -9,6 +9,8 @@ import {
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
+import LoginGoogleAndFacebook from "./LoginGoogleAndFacebook";
+
 function SignupForm(props) {
 
     const navigate = useNavigate();
@@ -132,16 +134,17 @@ function SignupForm(props) {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button style={{ backgroundColor: '#7FAD39', width: 500,height: 46, maxWidth: '100vh',}}
+                        <Button style={{ backgroundColor: '#7FAD39', width: 500,height: 46, maxWidth: '100vh',fontSize:15}}
                                 type="primary" htmlType="submit">
                             ĐĂNG KÝ
                         </Button>
                     </Form.Item>
                 </Form>
             </div>
+            <h6 className={"text-lg-center"}>Hoặc đăng nhập bằng</h6>
             <br/>
+            <LoginGoogleAndFacebook/>
         </div>
-
     );
 }
 

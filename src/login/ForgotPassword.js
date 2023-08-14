@@ -81,7 +81,7 @@ function ForgotPassword(props) {
                         <Input style={inputStyle} prefix={<MailOutlined/>} placeholder="Email"/>
                     </Form.Item>
                     <Form.Item>
-                        <Button style={{backgroundColor: '#7FAD39', width: 500, height: 46, maxWidth: '100vh',}}
+                        <Button style={{backgroundColor: '#7FAD39', width: 500, height: 46, maxWidth: '100vh',fontSize:15}}
                                 type="primary" htmlType="submit">
                             GỬI YÊU CẦU ĐẶT LẠI MẬT KHẨU
                         </Button>
