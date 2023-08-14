@@ -4,13 +4,39 @@ import {
     UserOutlined,
     LockOutlined,
 } from '@ant-design/icons';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import {useAuth} from "./AuthProvider";
 
-function signInForm(props) {
+function SignInForm(props) {
+    const navigate = useNavigate();
+    const {setUser, setToken} = useAuth();
+        const onFinish = (values) => {
+            axios.post("http://localhost:8080/api/login", {
+                username: values.username,
+                password: values.password
+            })
+                .then((response) => {
+                    const token = response.data.token
+                    const user = response.data
+                    try {
+                        setUser(user)
+                        setToken(token)
+                        navigate("/")
+                    }catch (error) {
+                        console.error("Token verification error:", error);
+                    }
+                })
+                .catch(() => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "đã xảy ra sự cố",
+                        text: "Sai tài khoản hoặc mật khẩu"
+                    })
+                })
+        };
 
-    const onFinish = (values) => {
-        console.log('login success', values);
-    };
     // CSS
     const rainbowBackground = {
         minHeight: '300px',
@@ -29,7 +55,7 @@ function signInForm(props) {
         <div>
             <div className={"text-lg-center content"}>
                 <h4><strong>ĐĂNG NHẬP TÀI KHOẢN</strong></h4> <br/>
-                <h6>Bạn chưa có tài khoản ? Đăng ký <Link style={{color:'#7FAD39'}} to={"/signup"}>tại đây</Link></h6>
+                <h6>Bạn chưa có tài khoản ? Đăng ký <Link style={{color: '#7FAD39'}} to={"/signup"}>tại đây</Link></h6>
             </div>
             <div style={rainbowBackground}>
                 <Form name="login" onFinish={onFinish} scrollToFirstError>
@@ -56,9 +82,9 @@ function signInForm(props) {
                     >
                         <Input.Password style={inputStyle} prefix={<LockOutlined/>} placeholder="Mật khẩu"/>
                     </Form.Item>
-                    <p>Quên mật khẩu ? Nhấn <Link style={{color:'#7FAD39'}} to={"/forgotPassword"}>vào đây</Link></p>
+                    <p>Quên mật khẩu ? Nhấn <Link style={{color: '#7FAD39'}} to={"/forgotPassword"}>vào đây</Link></p>
                     <Form.Item>
-                        <Button style={{ backgroundColor: '#7FAD39', width: 500,height: 46, maxWidth: '100vh',}}
+                        <Button style={{backgroundColor: '#7FAD39', width: 500, height: 46, maxWidth: '100vh',}}
                                 type="primary" htmlType="submit">
                             ĐĂNG NHẬP
                         </Button>
@@ -70,4 +96,4 @@ function signInForm(props) {
     );
 }
 
-export default signInForm;
+export default SignInForm;
